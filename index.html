@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#101114" />
+  <title>Steel Ball Run — Eclipse Trail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="scene" aria-label="Jogo 3D de corrida a cavalo"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Steel Ball Run"><span class="brand-mark">S<span>★</span></span><span class="brand-copy">STEEL BALL RUN<small>THE ECLIPSE TRAIL</small></span></a>
+      <div class="race-tag"><i></i> CORRIDA DO CADÁVER SANTO</div>
+      <button id="sound-toggle" class="icon-button" aria-label="Alternar som">♫<span>SOM</span></button>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="hud-left">
+        <div class="stat-card distance-card"><span class="eyebrow">DISTÂNCIA</span><strong><span id="distance">000</span><small>m</small></strong><div class="distance-track"><i id="progress-fill"></i></div></div>
+        <div class="stat-card"><span class="eyebrow">PARTES SAGRADAS</span><div class="relic-row" id="relics"><i>✦</i><i>✦</i><i>✦</i><i>✦</i></div></div>
+      </div>
+      <div class="hud-right">
+        <div class="style-card"><span class="eyebrow">ESTILO DE COMBATE</span><div class="style-choice"><span class="style-icon" id="style-icon">✧</span><span><b id="style-name">TUSK · ATO 1</b><small id="style-sub">UNHA GIRATÓRIA</small></span><button id="switch-style" title="Alternar estilo">Q</button></div></div>
+        <div class="stamina"><span>VIGOR</span><div><i id="stamina-fill"></i></div></div>
+      </div>
+    </section>
+    <div class="toast" id="toast"></div>
+    <div class="center-message" id="center-message"></div>
+    <div class="controls-hint" id="controls-hint"><span>← A / D →</span> MOVER <b>SPACE</b> PULAR <b>SHIFT</b> ARRANCADA <b>Q</b> ESTILO <b>E</b> ATAQUE</div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="move-controls"><button data-control="left">‹</button><button data-control="right">›</button></div>
+      <div class="action-controls"><button data-control="jump">PULAR</button><button data-control="attack">ATAQUE</button><button data-control="style">ESTILO</button></div>
+    </div>
+    <section class="overlay" id="start-screen">
+      <div class="overlay-backdrop"></div>
+      <div class="start-content">
+        <div class="chapter">CAPÍTULO 01 <span>—</span> A FRONTEIRA DOURADA</div>
+        <h1>STEEL<br><em>BALL</em> RUN</h1>
+        <p class="subtitle">A corrida pelo <strong>cadáver santo</strong> começa agora.</p>
+        <div class="start-divider"><span>✦</span></div>
+        <p class="intro">Cavalgue pelo deserto, desvie dos perigos e reúna as partes sagradas para despertar os quatro atos de Tusk.</p>
+        <button id="start-button" class="primary-button">INICIAR CORRIDA <span>→</span></button>
+        <div class="start-controls"><span><b>WASD</b> MOVER</span><span><b>ESPAÇO</b> PULAR</span><span><b>Q</b> ESTILO</span><span><b>E</b> ATACAR</span></div>
+        <div class="note">Uma aventura inspirada em JoJo's Bizarre Adventure</div>
+      </div>
+      <div class="start-art"><div class="sun"></div><div class="art-horse">♞</div><div class="art-line line-one"></div><div class="art-line line-two"></div><span class="art-caption">STAND BY<br>YOUR SPIRIT</span></div>
+    </section>
+    <section class="overlay hidden" id="end-screen">
+      <div class="overlay-backdrop"></div><div class="end-content"><div class="chapter" id="end-kicker">FIM DA JORNADA</div><h2 id="end-title">A corrida<br>continua.</h2><p id="end-copy">O deserto guarda mais mistérios.</p><div class="end-stats"><span>DISTÂNCIA<strong id="final-distance">0 m</strong></span><span>PARTES<strong id="final-parts">0 / 4</strong></span></div><button id="restart-button" class="primary-button">CORRER DE NOVO <span>↻</span></button></div>
+    </section>
+    <div class="damage-flash" id="damage-flash"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
